@@ -1,11 +1,23 @@
 <?php
+    require('./pdo.inc.php');
+
     $user = $_POST['user'];
     $pass = $_POST['pass'];
 
-    if ($user == 'henrique' && $pass == '123') {
+    $sql = $pdo->prepare('SELECT * FROM usuarios WHERE username = :usr AND senha = :pass');
+
+    $sql->bindParam(':usr', $user);
+    $sql->bindParam(':pass', $pass);
+
+    $sql->execute();
+
+
+    if ($sql->rowCount()) {
+
+        $user = $sql->fetch(PDO::FETCH_OBJ);
         
         session_start();
-        $_SESSION['user'] = 'Henrique';
+        $_SESSION['user'] = $user->nome;
 
         header('location:boasvindas.php');
         die;
