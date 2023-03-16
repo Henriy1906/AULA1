@@ -1,0 +1,30 @@
+{% include "inc/head.html" %}
+
+<h1>Listagem de usuários</h1>
+    <table border = 1px solid black>
+        <tr>
+            <td>Usuários</td>
+            <td>Admin</td>
+            <td>Ativo</td>
+        </tr>
+
+{% for usr in usuarios %}
+
+<tr>
+    <td>{{ usr.username }}</td>
+    <td>{{ usr.admin }}</td>
+    <td>{{ usr.ativo }}</td>
+    <td><a href="usuario_apagar.php?id={{usr.id}}">Apagar</a></td>
+</tr>
+
+{% else %}
+<tr>
+    <td colspan="2">Nenhum usuário</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<a href="novo_usuario.php">Adicionar usuário</a>
+
+{% include "inc/foot.html" %}

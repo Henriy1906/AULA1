@@ -11,8 +11,10 @@
 
     <div><input type="password" name="pass" placeholder="Senha"></div>
 
-    <div><input type="checkbox" name="admin" value="1" placeholder="Admin">
-    <label for="admin">Admin</label></div>
+    <div><input type="radio" name="admin" value="1" placeholder="Admin"> Admin
+    <div><input type="radio" name="admin" value="0" placeholder="Admin"> Admin(não)
+    <div><input type="hidden" name="ativo" value="1"></div>
+
 
     <div><input type="submit" value="Gravar"></div>
 
