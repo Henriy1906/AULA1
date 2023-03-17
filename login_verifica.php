@@ -4,7 +4,7 @@
     $user = $_POST['user'];
     $pass = $_POST['pass'];
 
-    $sql = $pdo->prepare('SELECT * FROM usuarios WHERE username = :usr');
+    $sql = $pdo->prepare('SELECT * FROM usuarios WHERE username = :usr AND ativo = 1');
 
     $sql->bindParam(':usr', $user);
 

@@ -3,6 +3,14 @@
 <h1>Apagar usuário</h1>
 
 <p>Tem certeza que quer fazer isso???</p>
-<p>Esse usuário nunca mais vai voltar 😶‍🌫️</p>
+<p>Esse usuário nunca mais vai voltar 😯</p>
+<p><strong>Você vai realmente apagar o coitado do(a) {{ usuario.username }}</strong></p>
+
+<form action="#" method="post">
+    <input type="hidden" name="id" value="{{ usuario.id }}">
+    <input type="submit" value="Apagar essa coisa">
+</form>
+
+<div><a href="usuarios.php">Cancelar</a></div>
 
 {% include "inc/foot.html" %}
