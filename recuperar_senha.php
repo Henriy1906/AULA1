@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $msg = 'Vai ver teu email burrão';
 
-        echo $twig->render('email_recupera_senha.html', ['token => $token']);
+        echo $twig->render('email_recupera_senha.html', ['token' => $token]);
         die;
 
     } else {
