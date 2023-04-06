@@ -10,7 +10,7 @@ $id = $_GET['id'] ?? false;
 
 $usr = new Usuario();
 $info = $usr->getById($id);
-var_dump($info);die;
 
 echo $twig->render('usuario_ver.html', [
+    'usuario' => $info,
 ]);

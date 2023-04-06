@@ -35,5 +35,29 @@ class Model
         return $user;
     }
 
+    public function create($data) {
+        // Inicia a construção dp SQL
+        $sql = "INSERT INTO {$this->table}";
+
+        // Prepara os campos e placeholders
+        foreach (array_keys($data) as $field) {
+            $sql_fields[] = "{$field} = :{$field}";
+        }
+
+        $sql_fields = implode(', ', $sql_fields);
+        $sql .= " SET {$sql_fields}";
+
+        $insert = $this->conex->prepare($sql);
+
+        // foreach ($data as $field => $value) {
+        //     $insert->bindValue(":{$field}", $value);
+        // }
+
+        $insert->execute($data);
+
+        return $insert->errorInfo();
+
+    }
+
 
 }
